@@ -1,0 +1,21 @@
+token literal names:
+null
+'hola'
+'buenosdias'
+null
+null
+
+token symbolic names:
+null
+null
+null
+NOMBRE
+WS
+
+rule names:
+saludo
+saludoTipo
+
+
+atn:
+[4, 1, 4, 10, 2, 0, 7, 0, 2, 1, 7, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 2, 0, 2, 0, 1, 1, 0, 1, 2, 7, 0, 4, 1, 0, 0, 0, 2, 7, 1, 0, 0, 0, 4, 5, 3, 2, 1, 0, 5, 6, 5, 3, 0, 0, 6, 1, 1, 0, 0, 0, 7, 8, 7, 0, 0, 0, 8, 3, 1, 0, 0, 0, 0]
