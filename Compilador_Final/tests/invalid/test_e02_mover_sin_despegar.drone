@@ -1,0 +1,7 @@
+// Test con error 2: mover sin haber despegado (error semántico)
+drone tierra;
+
+mision sin_despegar {
+    mover tierra adelante 10;
+    aterrizar tierra;
+}

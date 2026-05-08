@@ -1,0 +1,15 @@
+// Test válido 6: dos drones trabajando en secuencia
+drone alfa;
+drone beta;
+zona centro(5, 5);
+
+mision doble_mision {
+    despegar alfa;
+    mover alfa arriba 15;
+    ir_a alfa centro;
+    aterrizar alfa;
+    despegar beta;
+    mover beta arriba 10;
+    ir_a beta centro;
+    aterrizar beta;
+}

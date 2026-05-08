@@ -1,0 +1,14 @@
+// Test válido 5: condicional si/sino con altitud
+drone guardian;
+zona base(0, 0);
+zona alta(5, 5);
+
+mision vigilancia {
+    despegar guardian;
+    mover guardian arriba 50;
+    si guardian.altitud > 40:
+        ir_a guardian alta;
+    sino:
+        ir_a guardian base;
+    aterrizar guardian;
+}

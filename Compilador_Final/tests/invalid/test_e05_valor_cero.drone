@@ -1,0 +1,9 @@
+// Test con error 5: valor de movimiento negativo (error semántico)
+// Nota: ANTLR no acepta NUMBER negativo; se prueba con 0
+drone veloz;
+
+mision movimiento_cero {
+    despegar veloz;
+    mover veloz adelante 0;
+    aterrizar veloz;
+}

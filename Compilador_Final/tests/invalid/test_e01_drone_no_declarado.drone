@@ -1,0 +1,8 @@
+// Test con error 1: drone no declarado (error semántico)
+zona base(0, 0);
+
+mision error_undeclared {
+    despegar fantasma;
+    mover fantasma arriba 10;
+    aterrizar fantasma;
+}

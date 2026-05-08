@@ -1,0 +1,12 @@
+// Test válido 4: bucle repetir con giros
+drone rondador;
+
+mision patrulla_circular {
+    despegar rondador;
+    mover rondador arriba 25;
+    repetir 4 veces {
+        mover rondador adelante 10;
+        girar rondador derecha 90;
+    }
+    aterrizar rondador;
+}

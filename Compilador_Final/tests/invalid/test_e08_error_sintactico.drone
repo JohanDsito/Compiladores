@@ -1,0 +1,8 @@
+// Test con error 8: error sintáctico — falta punto y coma
+drone condor
+zona base(0, 0);
+
+mision sin_punto_coma {
+    despegar condor;
+    aterrizar condor;
+}

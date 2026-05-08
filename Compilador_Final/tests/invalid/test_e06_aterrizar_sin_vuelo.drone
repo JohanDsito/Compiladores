@@ -1,0 +1,6 @@
+// Test con error 6: aterrizar sin haber despegado (error semántico)
+drone pegasus;
+
+mision aterrizar_sin_vuelo {
+    aterrizar pegasus;
+}

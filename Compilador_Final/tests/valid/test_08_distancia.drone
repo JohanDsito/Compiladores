@@ -1,0 +1,14 @@
+// Test válido 8: sensor de distancia en condición
+drone scout;
+zona refugio(3, 3);
+
+mision sensor_distancia {
+    despegar scout;
+    mover scout arriba 15;
+    mover scout adelante 20;
+    si scout.distancia < 5:
+        ir_a scout refugio;
+    sino:
+        esperar 2s;
+    aterrizar scout;
+}

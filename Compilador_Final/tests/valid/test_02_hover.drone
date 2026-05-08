@@ -1,0 +1,10 @@
+// Test válido 2: hover y esperar
+drone phantom;
+
+mision hover_test {
+    despegar phantom;
+    mover phantom arriba 20;
+    hover phantom;
+    esperar 5s;
+    aterrizar phantom;
+}

@@ -1,0 +1,16 @@
+// Test válido 9: repetir anidado con esperar
+drone vigilia;
+
+mision patrulla_larga {
+    despegar vigilia;
+    mover vigilia arriba 30;
+    repetir 2 veces {
+        mover vigilia adelante 15;
+        repetir 3 veces {
+            girar vigilia derecha 30;
+            esperar 1s;
+        }
+        mover vigilia atras 15;
+    }
+    aterrizar vigilia;
+}

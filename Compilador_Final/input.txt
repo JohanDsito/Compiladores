@@ -1,0 +1,23 @@
+// ============================================================
+//  input.txt — Caso de prueba principal (del enunciado)
+//  DroneScript — Misión de patrullaje con drone "halcon"
+// ============================================================
+
+drone halcon;
+zona base(0, 0);
+zona punto_a(10, 5);
+
+mision patrulla {
+    despegar halcon;
+    mover halcon arriba 15;
+    ir_a halcon punto_a;
+    repetir 3 veces {
+        girar halcon derecha 90;
+        mover halcon adelante 5;
+    }
+    si halcon.bateria < 20:
+        ir_a halcon base;
+    sino:
+        esperar 10s;
+    aterrizar halcon;
+}

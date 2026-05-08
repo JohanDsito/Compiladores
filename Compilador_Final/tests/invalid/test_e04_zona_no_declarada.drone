@@ -1,0 +1,10 @@
+// Test con error 4: zona no declarada en ir_a (error semántico)
+drone halcon;
+zona base(0, 0);
+
+mision zona_inexistente {
+    despegar halcon;
+    mover halcon arriba 10;
+    ir_a halcon zona_magica;
+    aterrizar halcon;
+}

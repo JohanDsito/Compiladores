@@ -1,0 +1,9 @@
+// Test con error 10: drone declarado dos veces (error semántico)
+drone halcon;
+drone halcon;
+zona base(0, 0);
+
+mision duplicado {
+    despegar halcon;
+    aterrizar halcon;
+}

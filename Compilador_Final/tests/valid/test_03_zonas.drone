@@ -1,0 +1,16 @@
+// Test válido 3: múltiples zonas e ir_a
+drone explorador;
+zona inicio(0, 0);
+zona norte(0, 50);
+zona sur(0, -50);
+
+mision recorrido {
+    despegar explorador;
+    mover explorador arriba 30;
+    ir_a explorador norte;
+    esperar 3s;
+    ir_a explorador sur;
+    esperar 3s;
+    ir_a explorador inicio;
+    aterrizar explorador;
+}

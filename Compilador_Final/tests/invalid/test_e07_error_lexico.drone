@@ -1,0 +1,8 @@
+// Test con error 7: error léxico — carácter no permitido @
+drone halcon@especial;
+zona base(0, 0);
+
+mision error_lexico {
+    despegar halcon;
+    aterrizar halcon;
+}

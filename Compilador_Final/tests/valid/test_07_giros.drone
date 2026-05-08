@@ -1,0 +1,13 @@
+// Test válido 7: giros izquierda y derecha
+drone piloto;
+
+mision giros_combinados {
+    despegar piloto;
+    mover piloto arriba 20;
+    girar piloto derecha 45;
+    mover piloto adelante 10;
+    girar piloto izquierda 90;
+    mover piloto adelante 10;
+    girar piloto derecha 45;
+    aterrizar piloto;
+}

@@ -1,0 +1,9 @@
+// Test con error 3: despegar un drone que ya está en vuelo (error semántico)
+drone aguila;
+
+mision doble_despegue {
+    despegar aguila;
+    mover aguila arriba 10;
+    despegar aguila;
+    aterrizar aguila;
+}

@@ -1,0 +1,6 @@
+// Test con error 9: hover sin estar en vuelo (error semántico)
+drone zumbador;
+
+mision hover_sin_vuelo {
+    hover zumbador;
+}

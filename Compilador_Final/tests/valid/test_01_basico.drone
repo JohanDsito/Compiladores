@@ -1,0 +1,9 @@
+// Test válido 1: despegue y aterrizaje simple
+drone aguila;
+zona pista(0, 0);
+
+mision vuelo_basico {
+    despegar aguila;
+    mover aguila arriba 10;
+    aterrizar aguila;
+}
