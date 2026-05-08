@@ -14,6 +14,21 @@ class IfElseLangVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by IfElseLangParser#functionDecl.
+    def visitFunctionDecl(self, ctx:IfElseLangParser.FunctionDeclContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by IfElseLangParser#param.
+    def visitParam(self, ctx:IfElseLangParser.ParamContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by IfElseLangParser#paramList.
+    def visitParamList(self, ctx:IfElseLangParser.ParamListContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by IfElseLangParser#declaration.
     def visitDeclaration(self, ctx:IfElseLangParser.DeclarationContext):
         return self.visitChildren(ctx)
@@ -26,6 +41,11 @@ class IfElseLangVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by IfElseLangParser#statement.
     def visitStatement(self, ctx:IfElseLangParser.StatementContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by IfElseLangParser#returnStatement.
+    def visitReturnStatement(self, ctx:IfElseLangParser.ReturnStatementContext):
         return self.visitChildren(ctx)
 
 
@@ -59,6 +79,11 @@ class IfElseLangVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by IfElseLangParser#funcCallExpr.
+    def visitFuncCallExpr(self, ctx:IfElseLangParser.FuncCallExprContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by IfElseLangParser#arithmeticExpr.
     def visitArithmeticExpr(self, ctx:IfElseLangParser.ArithmeticExprContext):
         return self.visitChildren(ctx)
@@ -71,6 +96,16 @@ class IfElseLangVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by IfElseLangParser#idExpr.
     def visitIdExpr(self, ctx:IfElseLangParser.IdExprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by IfElseLangParser#argList.
+    def visitArgList(self, ctx:IfElseLangParser.ArgListContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by IfElseLangParser#block.
+    def visitBlock(self, ctx:IfElseLangParser.BlockContext):
         return self.visitChildren(ctx)
 
 

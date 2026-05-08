@@ -33,6 +33,6 @@ def patrulla():
     halcon['altitud'] = 0.0
 
 
-# ── Punto de entrada ──────────────────────────────────
+# ── Punto de entrada ──────
 if __name__ == '__main__':
     patrulla()

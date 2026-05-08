@@ -1,68 +1,60 @@
 grammar IfElseLang;
 
-program: statement+ EOF; 
+program: (statement | functionDecl)+ EOF;
+
+functionDecl: type ID LPAREN paramList? RPAREN block;
+param: type ID;
+paramList: param (',' param)*;
 
 declaration: type ID ('=' expr)? SEMI; 
 
-type: INT_TYPE | STRING_TYPE;
+type: 'int' | 'string';
 
-statement
-    : assignment
-    | ifStatement
-    | declaration
-    ;
+statement: assignment | ifStatement | declaration | returnStatement | expr SEMI;
+
+returnStatement: 'return' expr SEMI;
 
 assignment: ID ASSIGN expr SEMI;
 
-ifStatement
-    : IF LPAREN condition RPAREN LBRACE statement* RBRACE
-    (ELSE LBRACE statement* RBRACE)?
-    ;
+ifStatement: IF LPAREN condition RPAREN block (ELSE block)?;
 
-condition: expr;
+condition: expr; // ahora condición es cualquier expresión booleana
 
+// Expresiones con etiquetas
 expr
-    : ID                                       # idExpr
+    : ID LPAREN argList? RPAREN               # funcCallExpr
+    | ID                                       # idExpr
     | NUMBER                                   # numberExpr
-    | STRING                                   # stringExpr
+    | STRING                                   # stringExpr    
     | expr (LT | GT | GE | LE | EQ | NE) expr  # comparisonExpr
     | expr (PLUS | MINUS | MUL | DIV) expr     # arithmeticExpr
     | LPAREN expr RPAREN                       # parenExpr
     ;
 
-// === KEYWORDS ===
+argList: expr (',' expr)*;
+
+block: LBRACE statement* RBRACE;
 IF: 'if';
 ELSE: 'else';
-INT_TYPE: 'int';
-STRING_TYPE: 'string';
-
-// === SYMBOLS ===
 LPAREN: '(';
 RPAREN: ')';
 LBRACE: '{';
 RBRACE: '}';
 SEMI: ';';
 ASSIGN: '=';
-
+LT: '<';
+GT: '>';
 GE: '>=';
 LE: '<=';
 EQ: '==';
 NE: '!=';
-
-LT: '<';
-GT: '>';
-
-// === OPERADORES ===
 PLUS: '+';
 MINUS: '-';
 MUL: '*';
 DIV: '/';
 
-// === LITERALES ===
-STRING: '"' (~["\r\n])* '"';
 ID: [a-zA-Z_][a-zA-Z_0-9]*;
 NUMBER: [0-9]+;
-
-// === IGNORADOS ===
-COMMENT: '//' ~[\r\n]* -> skip;
+STRING: '"' (~["\r\n])* '"';
+COMMENT: '//' .*? '\n' -> skip;
 WS: [ \t\r\n]+ -> skip;
