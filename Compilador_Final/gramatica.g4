@@ -1,7 +1,6 @@
 // ============================================================
 //  DroneScript — Gramática ANTLR4
 //  Mini-compilador para control de drones
-//  Materia: Compiladores — Universidad Cooperativa de Colombia
 // ============================================================
 
 grammar gramatica;

@@ -2,7 +2,6 @@
 # ============================================================
 #  main.py — Punto de integración del Mini-Compilador DroneScript
 #  Ejecuta todas las fases: Léxico → Sintáctico → Semántico → Codegen
-#  Materia: Compiladores — Universidad Cooperativa de Colombia
 # ============================================================
 
 import sys
