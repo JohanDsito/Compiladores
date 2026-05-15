@@ -2,18 +2,61 @@ DroneScript Compiler — Log de Ejecución
 =======================================================
 
 ── CÓDIGO FUENTE ──────────────────────────────
-// Test con error 8: error sintáctico — falta punto y coma
-drone condor
-zona base(0, 0);
+// Test válido 3: múltiples zonas e ir_a
+drone explorador;
+zona inicio(0, 0);
+zona norte(0, 50);
+zona sur(0, -50);
 
-mision sin_punto_coma {
-    despegar condor;
-    aterrizar condor;
+mision recorrido {
+    despegar explorador;
+    mover explorador arriba 30;
+    ir_a explorador norte;
+    esperar 3s;
+    ir_a explorador sur;
+    esperar 3s;
+    ir_a explorador inicio;
+    aterrizar explorador;
 }
 
 
-── ERRORES SINTÁCTICOS ──────────────────────────
-  [Error Sintáctico - Línea 3, Col 0] Token inesperado: '[@2,72:75='zona',<3>,3:0]' — missing ';' at 'zona'
+── ADVERTENCIAS ─────────────────────────────────
+  [Advertencia - Línea 7] Antes de iniciar misión 'recorrido', verifique batería del drone 'explorador'.
+
+── CÓDIGO PYTHON GENERADO ───────────────────────
+import time
+
+# ── Estado de los drones ──────────────────────────────
+explorador = {'en_vuelo': False, 'x': 0.0, 'y': 0.0, 'altitud': 0.0, 'bateria': 100, 'orientacion': 0}
+
+# ── Zonas declaradas ──────────────────────────────────
+zonas = {'inicio': (0.0, 0.0), 'norte': (0.0, 50.0), 'sur': (0.0, -50.0)}
+
+# ── Misión: recorrido ────────────────────────────────────
+def recorrido():
+    # despegar explorador
+    explorador['en_vuelo'] = True
+    explorador['altitud'] = 1.0
+    # mover explorador arriba 30
+    explorador['altitud'] += 30
+    # ir_a explorador -> norte
+    explorador['x'], explorador['y'] = zonas['norte']
+    # esperar 3s
+    time.sleep(3)
+    # ir_a explorador -> sur
+    explorador['x'], explorador['y'] = zonas['sur']
+    # esperar 3s
+    time.sleep(3)
+    # ir_a explorador -> inicio
+    explorador['x'], explorador['y'] = zonas['inicio']
+    # aterrizar explorador
+    explorador['en_vuelo'] = False
+    explorador['altitud'] = 0.0
+
+
+# ── Punto de entrada ──────────────────────────────────
+if __name__ == '__main__':
+    recorrido()
 
 ── RESULTADO ────────────────────────────────────
-COMPILACIÓN FALLIDA en fase: SINTÁCTICO
+COMPILACIÓN EXITOSA

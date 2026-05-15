@@ -1,38 +1,33 @@
 import time
 
 # ── Estado de los drones ──────────────────────────────
-halcon = {'en_vuelo': False, 'x': 0.0, 'y': 0.0, 'altitud': 0.0, 'bateria': 100, 'orientacion': 0}
+explorador = {'en_vuelo': False, 'x': 0.0, 'y': 0.0, 'altitud': 0.0, 'bateria': 100, 'orientacion': 0}
 
 # ── Zonas declaradas ──────────────────────────────────
-zonas = {'base': (0.0, 0.0), 'punto_a': (10.0, 5.0)}
+zonas = {'inicio': (0.0, 0.0), 'norte': (0.0, 50.0), 'sur': (0.0, -50.0)}
 
-# ── Misión: patrulla ────────────────────────────────────
-def patrulla():
-    # despegar halcon
-    halcon['en_vuelo'] = True
-    halcon['altitud'] = 1.0
-    # mover halcon arriba 15
-    halcon['altitud'] += 15
-    # ir_a halcon -> punto_a
-    halcon['x'], halcon['y'] = zonas['punto_a']
-    # repetir 3 veces
-    for _ in range(3):
-        # girar halcon derecha 90°
-        halcon['orientacion'] = (halcon.get('orientacion', 0) + 90) % 360
-        # mover halcon adelante 5
-        halcon['x'] += 5
-    # si halcon.bateria < 20
-    if halcon['bateria'] < 20:
-        # ir_a halcon -> base
-        halcon['x'], halcon['y'] = zonas['base']
-    else:
-        # esperar 10s
-        time.sleep(10)
-    # aterrizar halcon
-    halcon['en_vuelo'] = False
-    halcon['altitud'] = 0.0
+# ── Misión: recorrido ────────────────────────────────────
+def recorrido():
+    # despegar explorador
+    explorador['en_vuelo'] = True
+    explorador['altitud'] = 1.0
+    # mover explorador arriba 30
+    explorador['altitud'] += 30
+    # ir_a explorador -> norte
+    explorador['x'], explorador['y'] = zonas['norte']
+    # esperar 3s
+    time.sleep(3)
+    # ir_a explorador -> sur
+    explorador['x'], explorador['y'] = zonas['sur']
+    # esperar 3s
+    time.sleep(3)
+    # ir_a explorador -> inicio
+    explorador['x'], explorador['y'] = zonas['inicio']
+    # aterrizar explorador
+    explorador['en_vuelo'] = False
+    explorador['altitud'] = 0.0
 
 
-# ── Punto de entrada ──────
+# ── Punto de entrada ──────────────────────────────────
 if __name__ == '__main__':
-    patrulla()
+    recorrido()

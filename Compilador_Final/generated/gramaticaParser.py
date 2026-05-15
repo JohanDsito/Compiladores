@@ -191,12 +191,6 @@ class gramaticaParser ( Parser ):
             if hasattr( listener, "exitProgram" ):
                 listener.exitProgram(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitProgram" ):
-                return visitor.visitProgram(self)
-            else:
-                return visitor.visitChildren(self)
-
 
 
 
@@ -280,12 +274,6 @@ class gramaticaParser ( Parser ):
             if hasattr( listener, "exitDronDecl" ):
                 listener.exitDronDecl(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitDronDecl" ):
-                return visitor.visitDronDecl(self)
-            else:
-                return visitor.visitChildren(self)
-
 
     class ZonaDeclContext(DeclarationContext):
 
@@ -308,12 +296,6 @@ class gramaticaParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitZonaDecl" ):
                 listener.exitZonaDecl(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitZonaDecl" ):
-                return visitor.visitZonaDecl(self)
-            else:
-                return visitor.visitChildren(self)
 
 
 
@@ -395,12 +377,6 @@ class gramaticaParser ( Parser ):
             if hasattr( listener, "exitMission" ):
                 listener.exitMission(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitMission" ):
-                return visitor.visitMission(self)
-            else:
-                return visitor.visitChildren(self)
-
 
 
 
@@ -469,12 +445,6 @@ class gramaticaParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitCommand" ):
                 listener.exitCommand(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitCommand" ):
-                return visitor.visitCommand(self)
-            else:
-                return visitor.visitChildren(self)
 
 
 
@@ -550,12 +520,6 @@ class gramaticaParser ( Parser ):
             if hasattr( listener, "exitGirarAction" ):
                 listener.exitGirarAction(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitGirarAction" ):
-                return visitor.visitGirarAction(self)
-            else:
-                return visitor.visitChildren(self)
-
 
     class MoverActionContext(ActionContext):
 
@@ -579,12 +543,6 @@ class gramaticaParser ( Parser ):
             if hasattr( listener, "exitMoverAction" ):
                 listener.exitMoverAction(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitMoverAction" ):
-                return visitor.visitMoverAction(self)
-            else:
-                return visitor.visitChildren(self)
-
 
     class SimpleActionContext(ActionContext):
 
@@ -602,12 +560,6 @@ class gramaticaParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitSimpleAction" ):
                 listener.exitSimpleAction(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitSimpleAction" ):
-                return visitor.visitSimpleAction(self)
-            else:
-                return visitor.visitChildren(self)
 
 
     class IrAActionContext(ActionContext):
@@ -629,12 +581,6 @@ class gramaticaParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitIrAAction" ):
                 listener.exitIrAAction(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitIrAAction" ):
-                return visitor.visitIrAAction(self)
-            else:
-                return visitor.visitChildren(self)
 
 
 
@@ -738,12 +684,6 @@ class gramaticaParser ( Parser ):
             if hasattr( listener, "exitDirection" ):
                 listener.exitDirection(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitDirection" ):
-                return visitor.visitDirection(self)
-            else:
-                return visitor.visitChildren(self)
-
 
 
 
@@ -810,12 +750,6 @@ class gramaticaParser ( Parser ):
             if hasattr( listener, "exitRepetirControl" ):
                 listener.exitRepetirControl(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitRepetirControl" ):
-                return visitor.visitRepetirControl(self)
-            else:
-                return visitor.visitChildren(self)
-
 
     class SiControlContext(ControlContext):
 
@@ -840,12 +774,6 @@ class gramaticaParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitSiControl" ):
                 listener.exitSiControl(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitSiControl" ):
-                return visitor.visitSiControl(self)
-            else:
-                return visitor.visitChildren(self)
 
 
 
@@ -952,12 +880,6 @@ class gramaticaParser ( Parser ):
             if hasattr( listener, "exitCondition" ):
                 listener.exitCondition(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitCondition" ):
-                return visitor.visitCondition(self)
-            else:
-                return visitor.visitChildren(self)
-
 
 
 
@@ -1005,12 +927,6 @@ class gramaticaParser ( Parser ):
             if hasattr( listener, "exitSensor" ):
                 listener.exitSensor(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitSensor" ):
-                return visitor.visitSensor(self)
-            else:
-                return visitor.visitChildren(self)
-
 
 
 
@@ -1055,12 +971,6 @@ class gramaticaParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitComparator" ):
                 listener.exitComparator(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitComparator" ):
-                return visitor.visitComparator(self)
-            else:
-                return visitor.visitChildren(self)
 
 
 
@@ -1108,12 +1018,6 @@ class gramaticaParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitWaitCmd" ):
                 listener.exitWaitCmd(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitWaitCmd" ):
-                return visitor.visitWaitCmd(self)
-            else:
-                return visitor.visitChildren(self)
 
 
 

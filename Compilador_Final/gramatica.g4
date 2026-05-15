@@ -86,7 +86,7 @@ waitCmd
 ID      : [a-zA-Z_][a-zA-Z_0-9]* ;
 
 // Números enteros y decimales positivos
-NUMBER  : [0-9]+ ('.' [0-9]+)? ;
+NUMBER  : '-'? [0-9]+ ('.' [0-9]+)? ;
 
 // Comentarios de línea estilo //
 COMMENT : '//' ~[\r\n]* -> skip ;
